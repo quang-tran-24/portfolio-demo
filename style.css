@@ -1,0 +1,1170 @@
+/* --- CÀI ĐẶT CƠ BẢN --- */
+:root {
+    --bg-dark: #111111;       /* Đen sâu hơn */
+    --bg-card: #1A1A1A;       /* Màu nền thẻ */
+    --text-white: #FFFFFF;
+    --text-gray: #A1A1AA;
+    --accent: #3B82F6;        /* Màu xanh điểm nhấn */
+    --gradient: radial-gradient(circle at 50% 0%, #2a2a35 0%, #111111 70%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hiệu ứng nền mờ để bớt trống */
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--gradient);
+    z-index: -1;
+}
+
+.main-wrapper {
+    max-width: 1200px; /* Tăng độ rộng nội dung */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.logo .dot { color: var(--accent); }
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--text-white); }
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icon-link {
+    color: var(--text-white);
+    opacity: 0.7;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-link:hover { opacity: 1; border-color: var(--accent); background: rgba(59, 130, 246, 0.1); }
+
+/* --- HERO SECTION (PHẦN GIỚI THIỆU) --- */
+.hero-section {
+    min-height: 80vh; /* Chiếm 80% chiều cao màn hình */
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Chia cột: Chữ rộng hơn ảnh một chút */
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+}
+
+.greeting {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.hero-text h1 {
+    font-size: 5rem; /* Chữ siêu to để lấp khoảng trống */
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.role {
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+/* Nút bấm */
+.cta-group { display: flex; gap: 20px; }
+
+.btn-primary {
+    background: var(--text-white);
+    color: var(--bg-dark);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: transform 0.2s;
+}
+
+.btn-secondary {
+    padding: 15px 35px;
+    text-decoration: none;
+    color: var(--text-white);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-3px); }
+.btn-secondary:hover { border-color: var(--text-white); }
+
+/* Ảnh Hero */
+.image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.image-wrapper img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px rgba(255, 255, 255, 0.05); /* Tạo bóng cứng để thêm chi tiết */
+    filter: grayscale(20%);
+    transition: 0.5s;
+}
+
+.image-wrapper img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* --- ABOUT SECTION --- */
+.about-section { padding: 100px 0; }
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-gray);
+    margin-right: 30px;
+    opacity: 0.5;
+}
+
+.section-header .line {
+    flex-grow: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Grid Layout cho About - Chìa khóa để cân đối */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình */
+    gap: 80px;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.mssv {
+    color: var(--accent);
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.description {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.contact-mini p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Skill Cards */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    border-color: var(--accent);
+    transform: translateX(10px);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.skill-header span {
+    color: var(--accent);
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.skill-card p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--accent);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .main-wrapper { padding: 0 20px; }
+    
+    header { flex-direction: column; gap: 20px; }
+    .nav-links { gap: 20px; }
+    
+    .hero-content {
+        grid-template-columns: 1fr; /* Về 1 cột */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-text h1 { font-size: 3rem; }
+    
+    .cta-group { justify-content: center; }
+    
+    .image-wrapper img {
+        max-width: 100%;
+        box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.05);
+    }
+    
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* --- STYLE MỚI CHO SỞ THÍCH (HÌNH ẢNH) --- */
+.hobbies-container {
+    margin-bottom: 30px;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.hobbies-title {
+    font-size: 1.8rem; /* Chữ to rõ ràng */
+    margin-bottom: 25px;
+    color: var(--text-white);
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Đường kẻ dưới tiêu đề */
+    padding-bottom: 10px;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Tự chia 4 cột */
+    gap: 20px;
+}
+
+.hobby-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+}
+
+.hobby-img-box {
+    width: 100%;
+    aspect-ratio: 1/1; /* Ép ảnh thành hình vuông */
+    overflow: hidden;
+    border-radius: 12px; /* Bo góc ảnh */
+    margin-bottom: 15px;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.hobby-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh vừa khung mà không bị méo */
+    transition: transform 0.5s ease;
+}
+
+.hobby-item:hover img {
+    transform: scale(1.1); /* Phóng to ảnh nhẹ khi di chuột */
+}
+
+.hobby-item p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* --- STYLE CHO 2 CỘT ĐIỂM MẠNH/YẾU BÊN DƯỚI --- */
+.grid-2-col-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình */
+    gap: 25px;
+}
+
+/* Responsive cho điện thoại: Xếp chồng lên nhau */
+@media (max-width: 768px) {
+    .grid-2-col-bottom {
+        grid-template-columns: 1fr;
+    }
+    .hobbies-grid {
+        grid-template-columns: 1fr 1fr; /* Điện thoại hiện 2 ảnh 1 hàng */
+    }
+}
+
+/* --- CSS CHO ĐIỂM MẠNH & ĐIỂM YẾU --- */
+.sw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.sw-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+/* Màu sắc riêng biệt */
+.strength-card { border-left: 4px solid #4ade80; } /* Viền trái màu xanh */
+.weakness-card { border-left: 4px solid #f87171; } /* Viền trái màu đỏ */
+
+.sw-card:hover { transform: translateY(-5px); }
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.card-header .icon { font-size: 1.8rem; }
+.card-header h3 { margin: 0; font-size: 1.4rem; color: var(--text-white); }
+
+.sw-list { list-style: none; padding: 0; }
+.sw-list li {
+    margin-bottom: 12px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.sw-list strong { color: var(--text-white); }
+
+/* --- CSS CHO DỰ ĐỊNH TƯƠNG LAI --- */
+.future-section { padding: 40px 0 80px 0; }
+
+.future-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.future-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.future-box:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--accent);
+}
+
+.future-icon {
+    font-size: 2.5rem;
+    min-width: 60px;
+    text-align: center;
+}
+
+.future-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: var(--accent); /* Màu xanh chủ đạo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.future-content p {
+    margin: 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.future-content strong { color: var(--text-white); }
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .sw-grid { grid-template-columns: 1fr; } /* Dồn thành 1 cột */
+    .future-box { flex-direction: column; text-align: center; }
+}
+
+/* =========================================
+   PHẦN HOẠT ẢNH BỔ SUNG (ANIMATIONS)
+========================================= */
+
+/* --- 1. Hiệu ứng Ảnh Nổi (Floating Hero Image) --- */
+/* Định nghĩa chuyển động bay lên xuống */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px); /* Bay lên 15px */
+    }
+    100% {
+        transform: translateY(0px); /* Trở về vị trí cũ */
+    }
+}
+
+/* Áp dụng vào ảnh đại diện ở phần Home */
+.image-wrapper img {
+    /* Tên animation | Thời gian | Kiểu chạy | Lặp vô tận */
+    animation: float 3s ease-in-out infinite;
+}
+
+
+/* --- 2. Hiệu ứng Thanh Kỹ Năng Chạy (Skill Bars) --- */
+/* Định nghĩa chuyển động làm đầy chiều ngang */
+@keyframes fillBar {
+    from {
+        width: 0%; /* Bắt đầu từ 0 */
+    }
+    /* Kết thúc ở chiều rộng đã set trong HTML (ví dụ 30%, 45%) */
+}
+
+/* Áp dụng vào phần màu bên trong thanh kỹ năng */
+.progress-bar .fill {
+    /* Chạy trong 1.5 giây, bắt đầu chậm rồi nhanh dần */
+    animation: fillBar 1.5s ease-out forwards;
+}
+
+
+/* --- 3. Hiệu ứng Xuất Hiện Khi Cuộn (Scroll Reveal) --- */
+/*
+   Cách dùng: Thêm class "hidden" vào bất kỳ thẻ HTML nào bạn muốn nó ẩn đi ban đầu.
+   Javascript sẽ tự động thêm class "show" khi cuộn tới.
+*/
+
+/* Trạng thái ban đầu (Bị ẩn) */
+.hidden {
+    opacity: 0; /* Mờ hoàn toàn */
+    filter: blur(5px); /* Hơi mờ nhòe để ảo diệu hơn */
+    transform: translateY(30px); /* Bị đẩy xuống dưới một chút */
+    transition: all 0.8s ease-out; /* Thời gian chuyển đổi trạng thái */
+}
+
+/* Trạng thái khi xuất hiện (Hiện) */
+.show {
+    opacity: 1; /* Hiện rõ */
+    filter: blur(0); /* Hết mờ */
+    transform: translateY(0); /* Trở về vị trí đúng */
+}
+
+/* Thêm độ trễ cho các phần tử con để chúng xuất hiện lần lượt */
+.dreams-grid .dream-card:nth-child(2) { transition-delay: 0.2s; }
+.dreams-grid .dream-card:nth-child(3) { transition-delay: 0.4s; }
+.hobbies-grid .hobby-item:nth-child(2) { transition-delay: 0.1s; }
+.hobbies-grid .hobby-item:nth-child(3) { transition-delay: 0.2s; }
+.hobbies-grid .hobby-item:nth-child(4) { transition-delay: 0.3s; }
+
+/* --- CHỈ CHỈNH DÃN CÁCH RIÊNG PHẦN SỞ THÍCH --- */
+
+/* 1. Tăng khoảng cách giữa 4 tấm ảnh (Đọc sách, Ăn uống...) */
+.hobbies-grid {
+    gap: 60px !important; /* Bạn chỉnh số này to nhỏ tùy ý (Mặc định là 20px) */
+}
+
+/* 2. Đẩy phần Sở thích ra xa khỏi phần Điểm Mạnh/Yếu bên dưới */
+.hobbies-container {
+    margin-bottom: 80px !important; /* Cách xa phần dưới 80px */
+    padding: 50px !important;       /* Làm khung sở thích to và thoáng hơn */
+}
+
+/* --- DÃN CÁCH GIỮA ĐIỂM MẠNH VÀ ƯỚC MƠ --- */
+
+/* 1. Đẩy phần Ước Mơ xuống thấp hơn nữa */
+.sw-grid {
+    margin-bottom: 100px !important; /* Bạn có thể tăng số này lên 150px hoặc 200px nếu muốn xa hơn */
+}
+
+/* 2. (Tùy chọn) Tăng thêm khoảng trống phía trên chữ "Ước Mơ Của Tôi" */
+.dreams-section {
+    padding-top: 50px !important;
+}
+
+/* --- CSS CHO LỘ TRÌNH (TIMELINE ROADMAP) --- */
+.roadmap-section {
+    padding: 80px 0 120px 0;
+    overflow: hidden; /* Tránh bị vỡ khung ngang */
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto 0 auto;
+}
+
+/* Kẻ đường thẳng ở giữa (Thân mũi tên) */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+/* Tạo hình tam giác ở cuối đường kẻ (Đầu mũi tên) */
+.timeline-line::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid rgba(255, 255, 255, 0.3); /* Màu đầu mũi tên */
+}
+
+/* Cấu trúc chung của mỗi mục tiêu */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+/* -- Xếp so le trái phải -- */
+.item-left { left: 0; text-align: right; } /* Nằm bên trái */
+.item-right { left: 50%; text-align: left; } /* Nằm bên phải */
+
+/* Dấu chấm tròn trên trục giữa */
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-dark);
+    border: 4px solid #fff;
+    border-radius: 50%;
+    top: 25px;
+    z-index: 10;
+}
+
+.item-left .timeline-dot { right: -12px; }
+.item-right .timeline-dot { left: -12px; }
+
+/* Hộp nội dung */
+.timeline-content {
+    padding: 25px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    transition: 0.3s;
+}
+
+.timeline-content:hover { transform: translateY(-5px); }
+
+.timeline-content .year {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.timeline-content h3 { margin: 5px 0 10px 0; font-size: 1.4rem; color: #fff; }
+.timeline-content p { margin: 0; color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+
+/* --- TÔ MÀU RIÊNG CHO TỪNG MỤC TIÊU (NEON STYLE) --- */
+
+/* 1. Màu Hồng */
+.color-pink .timeline-dot { border-color: #ff4757; box-shadow: 0 0 10px #ff4757; }
+.color-pink .timeline-content { border-top: 4px solid #ff4757; }
+.color-pink .year { background: #ff4757; }
+.color-pink:hover .timeline-content { box-shadow: 0 5px 20px rgba(255, 71, 87, 0.2); }
+
+/* 2. Màu Xanh Dương */
+.color-blue .timeline-dot { border-color: #1e90ff; box-shadow: 0 0 10px #1e90ff; }
+.color-blue .timeline-content { border-top: 4px solid #1e90ff; }
+.color-blue .year { background: #1e90ff; }
+.color-blue:hover .timeline-content { box-shadow: 0 5px 20px rgba(30, 144, 255, 0.2); }
+
+/* 3. Màu Vàng */
+.color-yellow .timeline-dot { border-color: #ffa502; box-shadow: 0 0 10px #ffa502; }
+.color-yellow .timeline-content { border-top: 4px solid #ffa502; }
+.color-yellow .year { background: #ffa502; color: #000; }
+.color-yellow:hover .timeline-content { box-shadow: 0 5px 20px rgba(255, 165, 2, 0.2); }
+
+/* 4. Màu Xanh Lá */
+.color-green .timeline-dot { border-color: #2ed573; box-shadow: 0 0 10px #2ed573; }
+.color-green .timeline-content { border-top: 4px solid #2ed573; }
+.color-green .year { background: #2ed573; color: #000; }
+.color-green:hover .timeline-content { box-shadow: 0 5px 20px rgba(46, 213, 115, 0.2); }
+
+/* 5. Màu Tím */
+.color-purple .timeline-dot { border-color: #a55eea; box-shadow: 0 0 10px #a55eea; }
+.color-purple .timeline-content { border-top: 4px solid #a55eea; }
+.color-purple .year { background: #a55eea; }
+.color-purple:hover .timeline-content { box-shadow: 0 5px 20px rgba(165, 94, 234, 0.2); }
+
+/* --- RESPONSIVE MOBILE (QUAN TRỌNG) --- */
+/* Trên điện thoại, chuyển về 1 cột bên trái */
+@media (max-width: 768px) {
+    .timeline-line { left: 30px; } /* Dời đường kẻ sang trái */
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; }
+    
+    /* Reset vị trí */
+    .item-left, .item-right { left: 0; text-align: left; }
+    
+    /* Chỉnh lại vị trí dấu chấm */
+    .item-left .timeline-dot, .item-right .timeline-dot {
+        left: 18px; /* Khớp với đường kẻ mới */
+        right: auto;
+    }
+}
+
+/* --- PHẦN CẢM ƠN (THANK YOU SECTION) --- */
+.thank-you-section {
+    padding: 100px 0 60px 0; /* Khoảng cách trên dưới */
+    text-align: center; /* Căn giữa toàn bộ nội dung */
+}
+
+.thank-you-content {
+    max-width: 600px; /* Giới hạn chiều rộng để chữ không bị dàn trải quá */
+    margin: 0 auto;   /* Căn giữa hộp nội dung */
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Hiệu ứng trái tim đập (Heartbeat) */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+}
+
+.heart-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: heartbeat 2s infinite; /* Trái tim đập liên tục */
+}
+
+.thank-you-section h2 {
+    font-size: 2.2rem;
+    color: var(--text-white);
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.thank-you-section p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Chỉnh lại nút bấm cho đẹp hơn ở phần này */
+.thank-you-section .btn-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); /* Bóng đổ màu xanh */
+}
+
+.thank-you-section .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+/* --- CSS CHO PHẦN LỊCH TRÌNH (SCHEDULE) --- */
+.schedule-section {
+    padding: 80px 0;
+}
+
+.schedule-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi màn hình: 1 bên ảnh, 1 bên chữ */
+    gap: 60px; /* Khoảng cách giữa ảnh và chữ */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin-top: 40px;
+}
+
+/* Trang trí khung ảnh */
+.schedule-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3); /* Bóng đổ đậm đà */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.schedule-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng zoom nhẹ khi di chuột vào ảnh */
+.schedule-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Phần chữ mô tả */
+.schedule-info h3 {
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Danh sách chi tiết sáng/chiều/tối */
+.schedule-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.schedule-list li {
+    background: rgba(255,255,255,0.03); /* Nền mờ cho từng dòng */
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent); /* Đường kẻ màu bên trái */
+    color: var(--text-gray);
+    display: flex;
+    flex-direction: column; /* Trên điện thoại sẽ xuống dòng */
+}
+
+.schedule-list .time {
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.note {
+    font-style: italic;
+    color: var(--accent); /* Màu xanh chủ đạo */
+    font-weight: 600;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .schedule-container {
+        grid-template-columns: 1fr; /* Về 1 cột */
+        gap: 40px;
+    }
+    
+    .schedule-list li {
+        flex-direction: column;
+    }
+}
+
+/* --- SỬA LẠI: ICON NGANG, CONTACT DỌC --- */
+.social-mini {
+    display: flex !important;   /* Xếp ngang */
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.contact-mini {
+    display: block !important;  /* Xếp dọc */
+}
+
+.contact-mini p {
+    margin-bottom: 8px;
+}
+
+.social-item {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: flex; /* Để căn giữa svg */
+}
+
+.social-item:hover {
+    color: #00ff88;
+    transform: translateY(-3px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- GLASSMORPHISM CHO 4 Ô SỞ THÍCH --- */
+
+/* 1. Tạo khung thẻ kính */
+.hobby-item {
+    /* Màu nền trắng nhưng độ trong suốt cực thấp (5%) */
+    background: rgba(255, 255, 255, 0.05);
+    
+    /* Hiệu ứng làm mờ hậu cảnh (Linh hồn của Glassmorphism) */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Hỗ trợ Safari */
+    
+    /* Viền mỏng sáng nhẹ để tạo cảm giác độ dày của kính */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Bo góc và khoảng cách bên trong */
+    border-radius: 20px;
+    padding: 20px;
+    
+    /* Đổ bóng nhẹ để tách biệt khỏi nền */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Căn chỉnh nội dung */
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+/* 2. Điều chỉnh ảnh bên trong cho vừa khung kính */
+.hobby-img-box {
+    border-radius: 15px; /* Bo góc ảnh nhỏ hơn khung ngoài xíu */
+    border: none; /* Bỏ viền cũ đi cho đẹp */
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 3. Hiệu ứng khi di chuột vào (Hover) */
+.hobby-item:hover {
+    transform: translateY(-10px); /* Bay lên cao hơn chút */
+    
+    /* Tăng độ sáng của kính */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    
+    /* Hiệu ứng phát sáng màu xanh (theo tông màu chủ đạo của bạn) */
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.hobby-item p {
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 1px;
+}
+
+/* --- CSS CHO ALBUM ẢNH CÁ NHÂN --- */
+.personal-gallery-section {
+    padding: 80px 0;
+}
+
+.section-desc-center {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.photo-grid {
+    display: grid;
+    /* Tự động chia cột: Mỗi ảnh rộng tối thiểu 300px, còn lại tự chia đều */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Khoảng cách giữa các ảnh */
+}
+
+.photo-item {
+    height: 350px; /* Chiều cao cố định để các ô bằng nhau tăm tắp */
+    border-radius: 16px;
+    overflow: hidden; /* Cắt phần ảnh thừa */
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Quan trọng: Giữ ảnh không bị méo dù khung hình vuông hay chữ nhật */
+    transition: transform 0.6s ease;
+}
+
+/* Hiệu ứng: Khi di chuột vào, ảnh phóng to và sáng lên */
+.photo-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Trên điện thoại ảnh nhỏ lại chút cho vừa */
+        gap: 15px;
+    }
+    
+    .photo-item {
+        height: 250px; /* Giảm chiều cao trên điện thoại */
+    }
+}
+
+/* --- FIX LỖI ẢNH VỪA TRANG (RESPONSIVE IMAGE) --- */
+img {
+    max-width: 100%;  /* Ảnh không bao giờ rộng hơn khung chứa nó */
+    height: auto;     /* Chiều cao tự động tính toán để ảnh không bị méo */
+    display: block;   /* Xóa khoảng trắng thừa dưới chân ảnh */
+}
+
+/* --- STYLE MỚI CHO SKILLS (TECH STACK) --- */
+
+.skills-container {
+    background: var(--bg-card); /* Hoặc để nền trong suốt nếu thích */
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-white);
+    border-left: 4px solid var(--accent); /* Kẻ sọc xanh bên trái điểm nhấn */
+    padding-left: 15px;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap; /* Tự động xuống dòng nếu hết chỗ */
+    gap: 12px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 50px; /* Bo tròn dạng viên thuốc */
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-item .tech-icon {
+    font-size: 1.1rem;
+}
+
+/* Hiệu ứng khi di chuột vào từng skill */
+.tech-item:hover {
+    background: rgba(59, 130, 246, 0.1); /* Màu xanh nhạt */
+    border-color: var(--accent);
+    color: var(--text-white);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* Style riêng cho skill nào bạn muốn nhấn mạnh (ví dụ Python) */
+.tech-item.highlight {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.05);
+    color: var(--text-white);
+}
+
+/* --- GIAO DIỆN ƯỚC MƠ MỚI (ZIG-ZAG LAYOUT) --- */
+.dreams-section {
+    padding: 100px 0;
+    overflow-x: hidden; /* Tránh thanh cuộn ngang nếu ảnh bay vào */
+}
+
+.dreams-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Khoảng cách giữa các ước mơ rất thoáng */
+    margin-top: 60px;
+}
+
+.dream-item {
+    display: flex;
+    align-items: center; /* Căn giữa ảnh và chữ theo chiều dọc */
+    gap: 60px; /* Khoảng cách giữa ảnh và chữ */
+}
+
+/* Đảo ngược vị trí cho các mục chẵn (Mục số 2 sẽ có ảnh bên phải) */
+.dream-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* --- PHẦN ẢNH (Làm ảnh to và đẹp như Poster) --- */
+.dream-image-box {
+    flex: 1.2; /* Ảnh chiếm 1.2 phần (to hơn chữ một chút) */
+    height: 400px; /* Chiều cao cố định */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4); /* Bóng đổ sâu tạo chiều sâu 3D */
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+}
+
+.dream-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease; /* Hiệu ứng zoom chậm rãi sang chảnh */
+}
+
+.dream-item:hover .dream-image-box img {
+    transform: scale(1.05); /* Phóng to nhẹ khi di chuột */
+}
+
+/* --- PHẦN CHỮ (Trình bày hiện đại) --- */
+.dream-text-box {
+    flex: 1; /* Chữ chiếm 1 phần */
+    padding: 20px;
+    position: relative;
+}
+
+.step-number {
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03); /* Số mờ chìm dưới nền */
+    position: absolute;
+    top: -60px;
+    left: 0;
+    line-height: 1;
+    z-index: -1;
+}
+
+.dream-text-box h3 {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #fff, #94a3b8); /* Chữ màu Gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.dream-text-box p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* --- RESPONSIVE MOBILE (Xếp chồng lên nhau) --- */
+@media (max-width: 900px) {
+    .dream-item, .dream-item:nth-child(even) {
+        flex-direction: column; /* Ảnh trên, chữ dưới */
+        gap: 30px;
+    }
+
+    .dream-image-box {
+        width: 100%;
+        height: 300px; /* Ảnh nhỏ lại chút trên điện thoại */
+    }
+
+    .step-number {
+        font-size: 3rem;
+        top: -30px;
+    }
+}
